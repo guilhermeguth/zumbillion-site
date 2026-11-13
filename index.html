@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261113b">
+  <link rel="stylesheet" href="style.css?v=20261113c">
 </head>
 <body>
   <header class="top">
@@ -35,6 +35,7 @@
       <a href="#galeria" data-i18n="nav.gallery">Galeria</a>
       <a href="#personagens" data-i18n="nav.characters">Personagens</a>
       <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
+      <a href="#guia" data-i18n="nav.guide">Guia</a>
       <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
       <a href="#creditos" data-i18n="nav.credits">Créditos</a>
     </nav>
@@ -221,6 +222,94 @@
       <ul class="weapons" id="weapons"></ul>
     </section>
 
+    <section id="guia">
+      <h2 data-i18n="guide.title">Guia do jogo</h2>
+      <p class="lead" data-i18n="guide.text">Tudo o que você precisa saber para sobreviver às primeiras partidas.</p>
+      <div class="guide">
+        <div class="guide-tabs" role="tablist" aria-label="Guia">
+        <button type="button" role="tab" id="tab-play" aria-controls="guide-play" aria-selected="true" tabindex="0" data-i18n="guide.play">Como jogar</button>
+        <button type="button" role="tab" id="tab-level" aria-controls="guide-level" aria-selected="false" tabindex="-1" data-i18n="guide.level">Subir de nível</button>
+        <button type="button" role="tab" id="tab-weapons" aria-controls="guide-weapons" aria-selected="false" tabindex="-1" data-i18n="guide.weapons">Armas e evoluções</button>
+        <button type="button" role="tab" id="tab-map" aria-controls="guide-map" aria-selected="false" tabindex="-1" data-i18n="guide.map">O mapa</button>
+        <button type="button" role="tab" id="tab-zombies" aria-controls="guide-zombies" aria-selected="false" tabindex="-1" data-i18n="guide.zombies">Zumbis</button>
+        <button type="button" role="tab" id="tab-powerups" aria-controls="guide-powerups" aria-selected="false" tabindex="-1" data-i18n="guide.powerups">Power-ups</button>
+        <button type="button" role="tab" id="tab-progress" aria-controls="guide-progress" aria-selected="false" tabindex="-1" data-i18n="guide.progress">Progresso</button>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-play" aria-labelledby="tab-play">
+          <p data-i18n-html="guide.play.0">Escolha um personagem e uma fase e caia num mapa cheio de zumbis. As armas atacam sozinhas o zumbi mais próximo: o seu trabalho é andar, se posicionar, pegar o que cai no chão e decidir como ficar mais forte.</p>
+          <ul>
+            <li data-i18n-html="guide.play.1"><strong>Modo normal:</strong> 30 minutos, com chefes no caminho e o Colosso no fim. Derrote-o para vencer.</li>
+            <li data-i18n-html="guide.play.2"><strong>Modo infinito:</strong> liberado ao vencer o normal. A horda não para de crescer.</li>
+            <li data-i18n-html="guide.play.3"><strong>Teclado:</strong> WASD ou setas para andar, E para interagir, Tab (segurar) para o mapa, R, B e P para re-rolar, banir e pular, Esc para pausar.</li>
+            <li data-i18n-html="guide.play.4"><strong>Controle:</strong> analógico para andar, X para interagir, Select para o mapa, Y, LB e RB nas escolhas, Start para pausar. Tudo pode ser trocado nas Configurações.</li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-level" aria-labelledby="tab-level" hidden>
+          <p data-i18n-html="guide.level.0">Os zumbis deixam cristais de experiência. Ao subir de nível, o jogo pausa e oferece 1 entre 3 melhorias:</p>
+          <ul>
+            <li data-i18n-html="guide.level.1"><strong>Conhecimentos:</strong> melhoram um atributo (dano, vida, velocidade, crítico, sorte...).</li>
+            <li data-i18n-html="guide.level.2"><strong>Armas:</strong> uma arma nova ou um nível a mais numa que você já tem, com atributos extras sorteados.</li>
+            <li data-i18n-html="guide.level.3"><strong>Raridade:</strong> Comum, Incomum, Raro, Épico ou Lendário; quanto mais rara, mais forte. A Sorte aumenta a chance das raras.</li>
+            <li data-i18n-html="guide.level.4"><strong>Espaços:</strong> 3 de arma e 3 de conhecimento por partida (o 4º de cada se compra na loja).</li>
+            <li data-i18n-html="guide.level.5"><strong>Re-rolar, banir e pular:</strong> troque as opções, tire uma da partida ou siga sem pegar nada.</li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-weapons" aria-labelledby="tab-weapons" hidden>
+          <p data-i18n-html="guide.weapons.0">São 24 armas, com comportamentos diferentes: tiro, corpo a corpo, cones de fogo, ondas sonoras, bumerangue, granadas, minas, lâminas girando e nuvens de gás.</p>
+          <ul>
+            <li data-i18n-html="guide.weapons.1"><strong>Evolução:</strong> leve uma arma ao nível 8 com o conhecimento certo e ela vira uma versão lendária, sempre mais forte.</li>
+            <li data-i18n-html="guide.weapons.2"><strong>Exemplos:</strong> Pistola + Dossiê do Atirador = Pistola de Elite; Lança-chamas + Relatório Médico = Lança-chamas de napalm; Katana + Relatório de Autópsia = Katana do mestre.</li>
+            <li data-i18n-html="guide.weapons.3"><strong>Airdrops:</strong> as caixas trazem melhorias só para as suas armas, inclusive efeitos de explodir, congelar e incendiar.</li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-map" aria-labelledby="tab-map" hidden>
+          <p data-i18n-html="guide.map.0">Três fases, cada uma com cidades, fazendas, cemitérios e ferros-velhos sorteados. Explore para achar:</p>
+          <ul>
+            <li data-i18n-html="guide.map.1"><strong>Carros abandonados:</strong> pague ouro para saquear um equipamento de sobrevivência.</li>
+            <li data-i18n-html="guide.map.2"><strong>Acampamentos:</strong> fique no círculo até a fogueira acender e ganhe um bônus de atributo.</li>
+            <li data-i18n-html="guide.map.3"><strong>Túmulos amaldiçoados:</strong> despertar um deixa a horda maior até o fim: mais perigo e mais experiência.</li>
+            <li data-i18n-html="guide.map.4"><strong>Estruturas:</strong> negociante, bancada que duplica um equipamento, torre de rádio que puxa tudo do chão e sirene que chama um elite com suprimentos.</li>
+            <li data-i18n-html="guide.map.5"><strong>Airdrops militares:</strong> a cada 3 minutos; siga a seta e fique ao lado da caixa para abrir.</li>
+            <li data-i18n-html="guide.map.6"><strong>Lagos e lama:</strong> deixam você e os zumbis mais lentos.</li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-zombies" aria-labelledby="tab-zombies" hidden>
+          <ul>
+            <li data-i18n-html="guide.zombies.0"><strong>Comum:</strong> lento e fraco, mas vem em quantidade absurda.</li>
+            <li data-i18n-html="guide.zombies.1"><strong>Corredor:</strong> pequeno e rápido.</li>
+            <li data-i18n-html="guide.zombies.2"><strong>Explosivo:</strong> corre até você e explode, inclusive quando morre.</li>
+            <li data-i18n-html="guide.zombies.3"><strong>Mutante:</strong> quase não anda, mas cospe de longe.</li>
+            <li data-i18n-html="guide.zombies.4"><strong>Brutamontes:</strong> muita vida e muito dano.</li>
+            <li data-i18n-html="guide.zombies.5"><strong>Aríete:</strong> para, treme em vermelho e dispara em linha reta: saia da frente.</li>
+            <li data-i18n-html="guide.zombies.6"><strong>Inchado:</strong> ao morrer, solta três Rastejantes.</li>
+            <li data-i18n-html="guide.zombies.7"><strong>Blindado:</strong> segura 60% de cada golpe, mas não segura fogo, ácido nem explosões.</li>
+            <li data-i18n-html="guide.zombies.8"><strong>Chefes:</strong> o Açougueiro, a Cuspidora e o Colosso, o chefe final.</li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-powerups" aria-labelledby="tab-powerups" hidden>
+          <p data-i18n-html="guide.powerups.0">De vez em quando a horda deixa um power-up temporário. Pegar de novo renova o tempo.</p>
+          <ul>
+            <li class="power"><img src="images/guide/fury.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.1"><strong>Fúria:</strong> +50% de velocidade de ataque por 10 s.</span></li>
+            <li class="power"><img src="images/guide/adrenaline.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.2"><strong>Adrenalina:</strong> +40% de velocidade por 10 s.</span></li>
+            <li class="power"><img src="images/guide/shield.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.3"><strong>Escudo:</strong> nenhum dano por 6 s.</span></li>
+            <li class="power"><img src="images/guide/heart.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.4"><strong>Coração:</strong> recupera 30% da vida.</span></li>
+            <li class="power"><img src="images/guide/magnet.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.5"><strong>Ímã:</strong> puxa tudo o que está no chão.</span></li>
+            <li class="power"><img src="images/guide/time.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.6"><strong>Parada de tempo:</strong> congela a horda por 5 s.</span></li>
+            <li class="power"><img src="images/guide/money.png" alt="" width="30" height="30"><span data-i18n-html="guide.powerups.7"><strong>Dinheiro:</strong> abates soltam moedas por 12 s.</span></li>
+          </ul>
+        </div>
+        <div class="guide-panel card" role="tabpanel" id="guide-progress" aria-labelledby="tab-progress" hidden>
+          <ul>
+            <li data-i18n-html="guide.progress.0"><strong>Moedas:</strong> ficam mesmo quando você morre.</li>
+            <li data-i18n-html="guide.progress.1"><strong>Loja:</strong> espaços extras, cargas de re-rolar, banir e pular, e melhorias permanentes de atributo.</li>
+            <li data-i18n-html="guide.progress.2"><strong>Ameaça:</strong> cinco níveis de dificuldade por fase, com mais moedas e pontos; vença um para liberar o próximo.</li>
+            <li data-i18n-html="guide.progress.3"><strong>Desbloqueios:</strong> personagens, armas, fases e skins liberados por desafios.</li>
+            <li data-i18n-html="guide.progress.4"><strong>Conquistas e rankings:</strong> 17 conquistas, rankings locais e o histórico das últimas partidas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="roadmap">
       <h2 data-i18n="roadmap.title">Roadmap</h2>
       <p class="lead" data-i18n="roadmap.text">O jogo é jogável do começo ao fim e está na fase de polimento. Daqui para a frente:</p>
@@ -289,6 +378,6 @@
     <button class="lightbox-next" type="button" data-i18n-aria="lightbox.next" aria-label="Próxima">›</button>
   </dialog>
 
-  <script src="script.js?v=20261113b"></script>
+  <script src="script.js?v=20261113c"></script>
 </body>
 </html>

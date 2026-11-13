@@ -103,6 +103,60 @@ const EN = {
   "stats.characters": "survivors, 18 skins",
   "stats.achievements": "achievements",
   "gallery.open": "Click a screenshot to see it larger.",
+  "nav.guide": "Guide",
+  "guide.title": "Game guide",
+  "guide.text": "Everything you need to know to survive your first runs.",
+  "guide.play": "How to play",
+  "guide.play.0": "Pick a character and a stage and drop into a map full of zombies. Your weapons attack the nearest zombie on their own: your job is to move, position yourself, grab what drops and decide how to get stronger.",
+  "guide.play.1": "<strong>Normal mode:</strong> 30 minutes, with bosses along the way and the Colossus at the end. Defeat it to win.",
+  "guide.play.2": "<strong>Endless mode:</strong> unlocked by winning normal mode. The horde never stops growing.",
+  "guide.play.3": "<strong>Keyboard:</strong> WASD or arrows to move, E to interact, hold Tab for the map, R, B and P to reroll, banish and skip, Esc to pause.",
+  "guide.play.4": "<strong>Controller:</strong> stick to move, X to interact, Select for the map, Y, LB and RB on choices, Start to pause. Everything can be rebound in Settings.",
+  "guide.level": "Leveling up",
+  "guide.level.0": "Zombies drop experience crystals. When you level up, the game pauses and offers 1 of 3 upgrades:",
+  "guide.level.1": "<strong>Knowledges:</strong> raise an attribute (damage, health, speed, crits, luck...).",
+  "guide.level.2": "<strong>Weapons:</strong> a new weapon or another level for one you have, with random bonus attributes.",
+  "guide.level.3": "<strong>Rarity:</strong> Common, Uncommon, Rare, Epic or Legendary; the rarer, the stronger. Luck improves the odds of rare ones.",
+  "guide.level.4": "<strong>Slots:</strong> 3 weapon and 3 knowledge slots per run (the 4th of each is sold in the shop).",
+  "guide.level.5": "<strong>Reroll, banish and skip:</strong> swap the options, remove one from the run or move on without picking.",
+  "guide.weapons": "Weapons and evolutions",
+  "guide.weapons.0": "There are 24 weapons with different behaviors: shooting, melee, cones of fire, sound waves, a boomerang, grenades, mines, spinning blades and gas clouds.",
+  "guide.weapons.1": "<strong>Evolution:</strong> take a weapon to level 8 with the right knowledge and it becomes a legendary version, always stronger.",
+  "guide.weapons.2": "<strong>Examples:</strong> Pistol + Sniper's Dossier = Elite Pistol; Flamethrower + Medical Report = Napalm Flamethrower; Katana + Autopsy Report = Master's Katana.",
+  "guide.weapons.3": "<strong>Airdrops:</strong> crates bring upgrades for your weapons only, including explosive, freezing and burning effects.",
+  "guide.map": "The map",
+  "guide.map.0": "Three stages, each with randomized towns, farms, graveyards and junkyards. Explore to find:",
+  "guide.map.1": "<strong>Abandoned cars:</strong> pay gold to loot a piece of survival gear.",
+  "guide.map.2": "<strong>Camps:</strong> stay in the circle until the fire lights up to get an attribute bonus.",
+  "guide.map.3": "<strong>Cursed tombs:</strong> awakening one makes the horde bigger until the end: more danger and more experience.",
+  "guide.map.4": "<strong>Structures:</strong> a merchant, a workbench that duplicates gear, a radio tower that pulls everything in and a siren that calls an elite carrying supplies.",
+  "guide.map.5": "<strong>Military airdrops:</strong> every 3 minutes; follow the arrow and stand by the crate to open it.",
+  "guide.map.6": "<strong>Lakes and mud:</strong> slow down both you and the zombies.",
+  "guide.zombies": "Zombies",
+  "guide.zombies.0": "<strong>Common:</strong> slow and weak, but comes in absurd numbers.",
+  "guide.zombies.1": "<strong>Runner:</strong> small and fast.",
+  "guide.zombies.2": "<strong>Exploder:</strong> runs at you and explodes, even when it dies.",
+  "guide.zombies.3": "<strong>Mutant:</strong> barely moves, but spits from afar.",
+  "guide.zombies.4": "<strong>Brute:</strong> lots of health and damage.",
+  "guide.zombies.5": "<strong>Rammer:</strong> stops, shakes in red and charges in a straight line: get out of the way.",
+  "guide.zombies.6": "<strong>Bloater:</strong> releases three Crawlers when it dies.",
+  "guide.zombies.7": "<strong>Armored:</strong> blocks 60% of every hit, but not fire, acid or explosions.",
+  "guide.zombies.8": "<strong>Bosses:</strong> the Butcher, the Spitter and the Colossus, the final boss.",
+  "guide.powerups": "Power-ups",
+  "guide.powerups.0": "Every now and then the horde drops a temporary power-up. Picking it up again refreshes the timer.",
+  "guide.powerups.1": "<strong>Fury:</strong> +50% attack speed for 10 s.",
+  "guide.powerups.2": "<strong>Adrenaline:</strong> +40% speed for 10 s.",
+  "guide.powerups.3": "<strong>Shield:</strong> no damage for 6 s.",
+  "guide.powerups.4": "<strong>Heart:</strong> restores 30% of your health.",
+  "guide.powerups.5": "<strong>Magnet:</strong> pulls in everything on the ground.",
+  "guide.powerups.6": "<strong>Time stop:</strong> freezes the horde for 5 s.",
+  "guide.powerups.7": "<strong>Cash:</strong> kills drop coins for 12 s.",
+  "guide.progress": "Progress",
+  "guide.progress.0": "<strong>Coins:</strong> you keep them even when you die.",
+  "guide.progress.1": "<strong>Shop:</strong> extra slots, reroll, banish and skip charges, and permanent attribute upgrades.",
+  "guide.progress.2": "<strong>Threat:</strong> five difficulty levels per stage, with more coins and score; win one to unlock the next.",
+  "guide.progress.3": "<strong>Unlocks:</strong> characters, weapons, stages and skins unlocked through challenges.",
+  "guide.progress.4": "<strong>Achievements and rankings:</strong> 17 achievements, local leaderboards and a history of your recent runs.",
   "footer.rights": "Images are in-game screenshots; the art belongs to its authors.",
 };
 
@@ -131,6 +185,9 @@ const WEAPONS = [
 ];
 
 const PT = {};
+// Textos com formatação (negrito) do guia: trocados como HTML, vindos só
+// deste arquivo e do próprio index.html.
+const PT_HTML = {};
 const PT_TITLES = {};
 const PT_ARIA = {};
 document.querySelectorAll("[data-i18n]").forEach((node) => {
@@ -163,6 +220,11 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
     node.textContent = english ? (EN[key] ?? PT[key]) : PT[key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+    const key = node.dataset.i18nHtml;
+    if (!(key in PT_HTML)) PT_HTML[key] = node.innerHTML;
+    node.innerHTML = english ? (EN[key] ?? PT_HTML[key]) : PT_HTML[key];
   });
   document.querySelectorAll("[data-i18n-title]").forEach((node) => {
     const key = node.dataset.i18nTitle;
@@ -352,7 +414,7 @@ function buildCounters() {
 
 // Seções e cartões aparecem ao rolar, em sequência.
 function buildReveal() {
-  const targets = [...document.querySelectorAll("main > section:not(.hero) > h2, main > section:not(.hero) > .lead, .card, #galeria figure, .weapons li, .stat")];
+  const targets = [...document.querySelectorAll("main > section:not(.hero) > h2, main > section:not(.hero) > .lead, .card:not(.guide-panel), .guide, #galeria figure, .weapons li, .stat")];
   if (REDUCED) return;
   targets.forEach((node) => {
     node.classList.add("reveal");
@@ -375,8 +437,33 @@ function buildReveal() {
   targets.forEach((node) => observer.observe(node));
 }
 
+// Abas do guia: clique, toque ou setas do teclado.
+function buildGuideTabs() {
+  const tabs = [...document.querySelectorAll(".guide-tabs [role=tab]")];
+  const select = (tab) => {
+    tabs.forEach((other) => {
+      const active = other === tab;
+      other.setAttribute("aria-selected", String(active));
+      other.tabIndex = active ? 0 : -1;
+      document.getElementById(other.getAttribute("aria-controls")).hidden = !active;
+    });
+  };
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => select(tab));
+    tab.addEventListener("keydown", (event) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[event.key];
+      if (!step) return;
+      event.preventDefault();
+      const next = tabs[(index + step + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+}
+
 buildWeapons();
 buildLightbox();
+buildGuideTabs();
 buildSlideshow();
 buildEmbers();
 buildCounters();
