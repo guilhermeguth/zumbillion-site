@@ -94,6 +94,10 @@ const EN = {
   "credits.own_music": "The boss and final-stretch music were composed for the game.",
   "credits.fonts": "Fonts:",
   "credits.engine": "Made with Godot Engine.",
+  "lightbox.close": "Close",
+  "lightbox.prev": "Previous",
+  "lightbox.next": "Next",
+  "gallery.open": "Click a screenshot to see it larger.",
   "footer.rights": "Images are in-game screenshots; the art belongs to its authors.",
 };
 
@@ -123,6 +127,7 @@ const WEAPONS = [
 
 const PT = {};
 const PT_TITLES = {};
+const PT_ARIA = {};
 document.querySelectorAll("[data-i18n]").forEach((node) => {
   PT[node.dataset.i18n] = node.textContent;
 });
@@ -159,6 +164,11 @@ function setLanguage(lang) {
     if (!(key in PT_TITLES)) PT_TITLES[key] = node.title;
     node.title = english ? (EN[key] ?? PT_TITLES[key]) : PT_TITLES[key];
   });
+  document.querySelectorAll("[data-i18n-aria]").forEach((node) => {
+    const key = node.dataset.i18nAria;
+    if (!(key in PT_ARIA)) PT_ARIA[key] = node.getAttribute("aria-label");
+    node.setAttribute("aria-label", english ? (EN[key] ?? PT_ARIA[key]) : PT_ARIA[key]);
+  });
   document.querySelectorAll("img[data-shot]").forEach((img) => {
     img.src = `images/shots/${img.dataset.shot}-${english ? "en" : "pt"}.png`;
   });
@@ -187,7 +197,73 @@ function initialLanguage() {
   return (navigator.language || "pt").toLowerCase().startsWith("pt") ? "pt" : "en";
 }
 
+// Galeria ampliada: clicar numa captura abre ela grande; dá para passar e
+// voltar pelos botões, pelas setas do teclado ou deslizando o dedo.
+function buildLightbox() {
+  const figures = [...document.querySelectorAll("#galeria figure")];
+  const dialog = document.getElementById("lightbox");
+  const image = document.getElementById("lightbox-image");
+  const caption = document.getElementById("lightbox-caption");
+  const count = document.getElementById("lightbox-count");
+  let current = 0;
+  let opener = null;
+
+  const show = (index) => {
+    current = (index + figures.length) % figures.length;
+    const figure = figures[current];
+    image.src = figure.querySelector("img").src;
+    caption.textContent = figure.querySelector("figcaption").textContent;
+    count.textContent = `${current + 1} / ${figures.length}`;
+  };
+  const open = (index) => {
+    opener = figures[index];
+    show(index);
+    dialog.showModal();
+  };
+
+  figures.forEach((figure, index) => {
+    figure.tabIndex = 0;
+    figure.setAttribute("role", "button");
+    figure.addEventListener("click", () => open(index));
+    figure.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open(index);
+      }
+    });
+  });
+  dialog.querySelector(".lightbox-prev").addEventListener("click", () => show(current - 1));
+  dialog.querySelector(".lightbox-next").addEventListener("click", () => show(current + 1));
+  dialog.querySelector(".lightbox-close").addEventListener("click", () => dialog.close());
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") show(current - 1);
+    if (event.key === "ArrowRight") show(current + 1);
+  });
+  // Clicar fora da imagem e dos botões fecha.
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog || event.target.tagName === "FIGURE") dialog.close();
+  });
+  dialog.addEventListener("close", () => opener && opener.focus());
+  let touchX = null;
+  dialog.addEventListener("touchstart", (event) => {
+    touchX = event.changedTouches[0].clientX;
+  }, { passive: true });
+  dialog.addEventListener("touchend", (event) => {
+    if (touchX === null) return;
+    const distance = event.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(distance) > 40) show(current + (distance < 0 ? 1 : -1));
+  });
+  // Ao trocar o idioma com a galeria aberta, a imagem e a legenda acompanham.
+  document.querySelectorAll(".lang button").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (dialog.open) show(current);
+    });
+  });
+}
+
 buildWeapons();
+buildLightbox();
 document.querySelectorAll(".lang button").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
