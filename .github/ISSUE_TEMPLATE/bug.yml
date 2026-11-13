@@ -1,0 +1,33 @@
+name: Relatar bug / Report a bug
+description: Algo deu errado no jogo? Conte aqui. / Something went wrong in the game? Tell us here.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar! O botão **Relatar bug** do jogo (na pausa e na tela de resultado) já copiou os dados da partida: é só colar abaixo.
+        Thanks for helping! The game's **Report a bug** button (on the pause and results screens) already copied your run's details: just paste them below.
+  - type: textarea
+    id: what
+    attributes:
+      label: O que aconteceu? / What happened?
+      description: O que você esperava e o que aconteceu de fato. / What you expected and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Como repetir / How to reproduce
+      description: Se souber, os passos até o problema. / If you know, the steps that lead to the problem.
+      placeholder: |
+        1. ...
+        2. ...
+  - type: textarea
+    id: report
+    attributes:
+      label: Relato do jogo / Game report
+      description: Cole aqui o texto copiado pelo botão Relatar bug (Ctrl+V). / Paste the text copied by the Report a bug button (Ctrl+V).
+      render: text
+    validations:
+      required: true

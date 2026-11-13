@@ -19,17 +19,17 @@ Site estático, sem build: abra o `index.html` ou sirva a pasta (`python3 -m htt
 
 ## Linha do tempo de atualizações
 
-A seção "Atualizações" mostra, por data, tudo o que o jogador percebe no jogo. **Cada entrega do jogo que o jogador perceba acrescenta uma entrada no topo de `updates.js`**, no mesmo PR do site que cita o cartão:
+A seção "Atualizações" mostra, por data, tudo o que o jogador percebe no jogo. **O `updates.js` é gerado pelo repositório do jogo; não edite à mão.** Cada entrega do jogo que o jogador perceba ganha uma novidade em `resources/changelog/` do jogo (a mesma lista da página Novidades do jogo e do `CHANGELOG.md`), com o texto em inglês nas traduções do jogo. Para atualizar o site, com os dois repositórios lado a lado:
 
-```js
-{
-  tag: "weapons", // weapons, horde, map, progress, combat, interface, audio ou site
-  pt: ["Título curto", "Uma ou duas frases do que mudou para quem joga."],
-  en: ["Short title", "One or two sentences on what changed for players."],
-},
+```bash
+python3 tools/build_docs.py --site=../zumbillion-site   # rodado na pasta do jogo
 ```
 
-Se a data ainda não existe, crie um bloco `{ date: "AAAA-MM-DD", items: [...] }` no início da lista. A página mostra as duas datas mais recentes e o botão "Ver todas" abre o resto. Como o repositório do jogo é privado, não ponha links para os cartões.
+e o `updates.js` entra no PR do site que cita o mesmo cartão. A página mostra as duas datas mais recentes e o botão "Ver todas" abre o resto. Como o repositório do jogo é privado, não ponha links para os cartões.
+
+## Relatos de bug
+
+O botão **Relatar bug** do jogo copia um relato da partida e abre o formulário de issue deste repositório (`.github/ISSUE_TEMPLATE/bug.yml`), em português e inglês, com um campo para colar o relato. O rodapé do site tem o mesmo link. Quando o Discord da comunidade existir (roadmap), o jogo passa a apontar para lá.
 
 ## Regra da arte (importante)
 
