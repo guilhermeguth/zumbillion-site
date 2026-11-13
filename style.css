@@ -228,6 +228,24 @@ h3 {
 
 .character { text-align: center; }
 .character img { margin: 0 auto 8px; }
+/* Clipe do personagem atacando, gravado do jogo em escala de 1 pixel e
+   ampliado sem suavização; o sprite andando fica por cima da borda de baixo. */
+.character .clip {
+  display: block;
+  margin: -16px -16px 0;
+  border-bottom: 2px solid var(--panel-edge);
+  background: #3a2c22;
+  overflow: hidden;
+}
+.character .clip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  image-rendering: pixelated;
+}
+.character .clip + .walker.big { position: relative; margin-top: -40px; }
 .ability { color: var(--muted); font-size: 16px; }
 .skins { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
 .skins img { width: 48px; height: 48px; background: rgba(255, 255, 255, 0.04); border: 2px solid var(--panel-edge); }
