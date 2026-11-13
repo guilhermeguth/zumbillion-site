@@ -1,0 +1,241 @@
+:root {
+  --bg: #15110d;
+  --panel: #1f1914;
+  --panel-edge: #4a3b2c;
+  --text: #ecdfc6;
+  --muted: #a89c88;
+  --gold: #f5cf55;
+  --red: #c8432f;
+  --green: #6fbf5a;
+  --gutter: 16px;
+  --pixel: "Silkscreen", "Courier New", monospace;
+  --body: "Pixelify Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+img { image-rendering: pixelated; max-width: 100%; height: auto; display: block; }
+
+a { color: var(--gold); }
+a:hover { color: #fff1b8; }
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px var(--gutter);
+  background: rgba(21, 17, 13, 0.94);
+  border-bottom: 2px solid var(--panel-edge);
+}
+
+.brand {
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.links { display: flex; gap: 18px; margin-left: auto; }
+.links a {
+  font-family: var(--pixel);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.links a:hover { color: var(--gold); }
+
+.lang { display: flex; gap: 4px; }
+.lang button {
+  font-family: var(--pixel);
+  font-size: 13px;
+  background: var(--panel);
+  color: var(--muted);
+  border: 2px solid var(--panel-edge);
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.lang button[aria-pressed="true"] { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+
+main { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+
+section { padding: 56px 0 8px; }
+
+h2 {
+  font-family: var(--pixel);
+  font-size: 26px;
+  color: var(--gold);
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-family: var(--pixel);
+  font-size: 15px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding-top: 48px;
+}
+
+.logo {
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: clamp(34px, 4.2vw, 54px);
+  white-space: nowrap;
+  line-height: 1;
+  margin: 0;
+  color: var(--text);
+  text-shadow: 4px 4px 0 var(--red), 7px 7px 0 #000;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-family: var(--pixel);
+  color: var(--red);
+  font-size: 20px;
+  margin: 14px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.pitch { margin: 0 0 20px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.button {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--gold);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 10px 16px;
+}
+.button:hover { color: var(--bg); background: #ffe28a; }
+.button.disabled { background: var(--panel); color: var(--muted); border-color: var(--panel-edge); box-shadow: none; }
+
+.platform { color: var(--muted); font-size: 15px; margin-top: 14px; }
+
+.frame {
+  margin: 0;
+  border: 3px solid #000;
+  box-shadow: 0 0 0 2px var(--panel-edge), 6px 6px 0 #000;
+  background: #000;
+}
+.frame figcaption {
+  font-size: 15px;
+  color: var(--muted);
+  background: var(--panel);
+  padding: 8px 10px;
+}
+
+.grid { display: grid; gap: 18px; }
+.features { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.gallery { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.characters { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+.card {
+  background: var(--panel);
+  border: 2px solid var(--panel-edge);
+  box-shadow: 4px 4px 0 #000;
+  padding: 16px;
+}
+.card p { margin: 0 0 8px; }
+.card p:last-child { margin-bottom: 0; }
+.features .card h3 { color: var(--gold); }
+
+.character { text-align: center; }
+.character img { margin: 0 auto 8px; }
+.ability { color: var(--muted); font-size: 16px; }
+.ability strong { color: var(--green); font-weight: 600; }
+
+.lead { max-width: 760px; }
+
+.weapons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 10px;
+}
+.weapons li {
+  background: var(--panel);
+  border: 2px solid var(--panel-edge);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.weapons img { width: 64px; height: 64px; object-fit: contain; }
+.weapons .evolved { position: absolute; inset: 0; margin: auto; opacity: 0; transition: opacity 0.15s; }
+.weapons li:hover .evolved, .weapons li:focus .evolved { opacity: 1; }
+.weapons li:hover, .weapons li:focus { border-color: var(--gold); outline: none; }
+
+.roadmap { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.stage ul { list-style: none; padding: 0; margin: 0; }
+.stage li { padding: 3px 0 3px 22px; position: relative; color: var(--muted); }
+.stage li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--panel-edge);
+}
+.stage.done h3 { color: var(--green); }
+.stage.done li { color: var(--text); }
+.stage.done li::before { background: var(--green); border-color: var(--green); }
+.stage.now { border-color: var(--gold); }
+.stage.now h3 { color: var(--gold); }
+.stage.now li::before { border-color: var(--gold); }
+.stage.next h3 { color: var(--text); }
+.stage.future h3 { color: var(--muted); }
+
+.credits p { color: var(--muted); }
+
+.bottom {
+  margin-top: 56px;
+  padding: 24px var(--gutter);
+  border-top: 2px solid var(--panel-edge);
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 28px; }
+  .logo { font-size: clamp(30px, 10vw, 54px); }
+  .links { display: none; }
+  .lang { margin-left: auto; }
+  section { padding-top: 40px; }
+  .gallery { grid-template-columns: 1fr; }
+}
