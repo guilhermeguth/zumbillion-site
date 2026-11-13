@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zumbillion</title>
+  <meta name="description" content="Zumbillion: sobreviva a hordas de centenas de zumbis com armas automáticas, evoluções e seis personagens. Jogo para PC.">
+  <meta property="og:title" content="Zumbillion">
+  <meta property="og:description" content="Sobreviva à horda. Centenas de zumbis, armas automáticas, evoluções e seis personagens.">
+  <meta property="og:image" content="images/shots/horde-pt.png">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#inicio">ZUMBILLION</a>
+    <nav class="links">
+      <a href="#destaques" data-i18n="nav.features">Destaques</a>
+      <a href="#galeria" data-i18n="nav.gallery">Galeria</a>
+      <a href="#personagens" data-i18n="nav.characters">Personagens</a>
+      <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
+      <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
+      <a href="#creditos" data-i18n="nav.credits">Créditos</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt">PT</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-text">
+        <h1 class="logo">ZUMBILLION</h1>
+        <p class="tagline" data-i18n="hero.tagline">Sobreviva à horda</p>
+        <p class="pitch" data-i18n="hero.pitch">Centenas de zumbis na tela, armas que atiram sozinhas e trinta minutos para durar. Escolha bem cada melhoria, evolua o arsenal e enfrente o Colosso no fim.</p>
+        <div class="actions">
+          <span class="button disabled" data-i18n="hero.steam">Steam: em breve</span>
+          <a class="button" href="#galeria" data-i18n="hero.see">Ver o jogo</a>
+        </div>
+        <p class="platform" data-i18n="hero.platform">PC · um jogador · offline · 8 idiomas</p>
+      </div>
+      <figure class="hero-shot frame">
+        <img data-shot="horde" src="images/shots/horde-pt.png" alt="" width="960" height="540">
+      </figure>
+    </section>
+
+    <section id="destaques">
+      <h2 data-i18n="features.title">O que te espera</h2>
+      <div class="grid features">
+        <article class="card">
+          <h3 data-i18n="features.horde.title">Uma horda de verdade</h3>
+          <p data-i18n="features.horde.text">Até 400 zumbis ao mesmo tempo, que te cercam pelos lados em vez de só seguir atrás. Corredores, explosivos, aríetes que disparam em linha reta, inchados que se dividem e blindados que pedem fogo.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="features.weapons.title">24 armas, todas com evolução</h3>
+          <p data-i18n="features.weapons.text">Da pistola à bazuca, de lâminas de serra a gás lacrimogêneo. Leve uma arma ao nível 8 com o conhecimento certo e ela evolui para uma versão lendária.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="features.choices.title">Escolhas que importam</h3>
+          <p data-i18n="features.choices.text">A cada nível, 1 entre 3 melhorias com raridade, de Comum a Lendária. Re-role, bane ou pule. Conhecimentos, equipamentos de sobrevivência e power-ups montam a sua build.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="features.map.title">Um mapa para explorar</h3>
+          <p data-i18n="features.map.text">Cidades, fazendas, cemitérios, lagos e lama que deixam lento. Carros para saquear, airdrops militares, acampamentos, túmulos amaldiçoados, negociantes e sirenes.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="features.characters.title">Seis sobreviventes</h3>
+          <p data-i18n="features.characters.text">Cada um com uma arma exclusiva e uma habilidade própria: do estilingue do Sobrevivente ao chinelo bumerangue da Velha.</p>
+        </article>
+        <article class="card">
+          <h3 data-i18n="features.progress.title">Progresso que fica</h3>
+          <p data-i18n="features.progress.text">Moedas mesmo na derrota, loja com melhorias permanentes, três fases, cinco níveis de Ameaça, modo infinito, rankings e 17 conquistas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2 data-i18n="gallery.title">Galeria</h2>
+      <div class="grid gallery">
+        <figure class="frame">
+          <img data-shot="horde" src="images/shots/horde-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.horde">A horda em volta e o lança-chamas trabalhando.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="evolution" src="images/shots/evolution-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.evolution">Subir de nível: uma evolução lendária entre as opções.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="supplies" src="images/shots/supplies-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.supplies">Suprimentos do airdrop: melhorias para as suas armas.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="map" src="images/shots/map-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.map">O mapa: cidades, lagos e acampamentos para descobrir.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="characters" src="images/shots/characters-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.characters">Seleção de personagens, com recordes e habilidades.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="result" src="images/shots/result-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.result">No fim, o dano de cada arma e as moedas ganhas.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="personagens">
+      <h2 data-i18n="characters.title">Personagens</h2>
+      <div class="grid characters">
+        <article class="card character">
+          <img src="images/characters/survivor.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.survivor.name">Sobrevivente</h3>
+          <p data-i18n="char.survivor.text">Um sujeito comum que se recusou a virar comida. Equilibrado em tudo.</p>
+          <p class="ability"><strong data-i18n="char.survivor.ability">Catador</strong> · <span data-i18n="char.survivor.effect">+25% de moedas ganhas.</span></p>
+        </article>
+        <article class="card character">
+          <img src="images/characters/soldier.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.soldier.name">Militar</h3>
+          <p data-i18n="char.soldier.text">Treinado para isso: aguenta mais e bate mais forte, mas carrega peso.</p>
+          <p class="ability"><strong data-i18n="char.soldier.ability">Treinamento militar</strong> · <span data-i18n="char.soldier.effect">+15% de dano.</span></p>
+        </article>
+        <article class="card character">
+          <img src="images/characters/firefighter.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.firefighter.name">Bombeiro</h3>
+          <p data-i18n="char.firefighter.text">Entra onde todo mundo sai correndo. Muita vida, e ela volta sozinha.</p>
+          <p class="ability"><strong data-i18n="char.firefighter.ability">Pele grossa</strong> · <span data-i18n="char.firefighter.effect">Recupera vida sozinho e recebe metade do dano de explosões.</span></p>
+        </article>
+        <article class="card character">
+          <img src="images/characters/scientist.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.scientist.name">Cientista</h3>
+          <p data-i18n="char.scientist.text">Frágil, mas vê oportunidade em tudo: coleta de longe e tem mais sorte.</p>
+          <p class="ability"><strong data-i18n="char.scientist.ability">Análise</strong> · <span data-i18n="char.scientist.effect">Coleta de mais longe e começa com 2 de Sorte.</span></p>
+        </article>
+        <article class="card character">
+          <img src="images/characters/rocker.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.rocker.name">Roqueiro</h3>
+          <p data-i18n="char.rocker.text">Rápido nas pernas e no gatilho. Só não pode apanhar.</p>
+          <p class="ability"><strong data-i18n="char.rocker.ability">Ritmo</strong> · <span data-i18n="char.rocker.effect">+15% de velocidade de ataque.</span></p>
+        </article>
+        <article class="card character">
+          <img src="images/characters/granny.png" alt="" width="96" height="96">
+          <h3 data-i18n="char.granny.name">Velha</h3>
+          <p data-i18n="char.granny.text">Devagar e frágil, mas a sorte dela é de outro mundo.</p>
+          <p class="ability"><strong data-i18n="char.granny.ability">Sorte de vó</strong> · <span data-i18n="char.granny.effect">Começa com 8 de Sorte.</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="arsenal">
+      <h2 data-i18n="arsenal.title">Arsenal</h2>
+      <p class="lead" data-i18n="arsenal.text">Armas que atiram sozinhas: corpo a corpo, projéteis, cones de fogo, ondas sonoras, bumerangues, minas e nuvens de gás. Passe o mouse ou toque para ver a versão evoluída.</p>
+      <ul class="weapons" id="weapons"></ul>
+    </section>
+
+    <section id="roadmap">
+      <h2 data-i18n="roadmap.title">Roadmap</h2>
+      <p class="lead" data-i18n="roadmap.text">O jogo é jogável do começo ao fim e está na fase de polimento. Daqui para a frente:</p>
+      <div class="grid roadmap">
+        <article class="card stage done">
+          <h3 data-i18n="roadmap.done">Pronto</h3>
+          <ul>
+            <li data-i18n="roadmap.done1">Horda com centenas de zumbis, que cerca o jogador</li>
+            <li data-i18n="roadmap.done2">24 armas com evolução e 6 personagens</li>
+            <li data-i18n="roadmap.done3">3 fases com lagos, lama, cidades e estruturas</li>
+            <li data-i18n="roadmap.done4">Loja, Ameaça, modo infinito, rankings e 17 conquistas</li>
+            <li data-i18n="roadmap.done5">8 idiomas e controle</li>
+          </ul>
+        </article>
+        <article class="card stage now">
+          <h3 data-i18n="roadmap.now">Agora</h3>
+          <ul>
+            <li data-i18n="roadmap.now1">Balanceamento da partida de 30 minutos</li>
+            <li data-i18n="roadmap.now2">Skins de personagem liberadas por desafios</li>
+            <li data-i18n="roadmap.now3">Dicas para quem joga pela primeira vez</li>
+            <li data-i18n="roadmap.now4">Teclas e botões configuráveis</li>
+            <li data-i18n="roadmap.now5">Música de chefe e da reta final</li>
+          </ul>
+        </article>
+        <article class="card stage next">
+          <h3 data-i18n="roadmap.next">Em seguida</h3>
+          <ul>
+            <li data-i18n="roadmap.next1">Página na Steam e lista de desejos</li>
+            <li data-i18n="roadmap.next2">Conquistas e rankings da Steam</li>
+            <li data-i18n="roadmap.next3">Discord da comunidade, com relato de bugs</li>
+          </ul>
+        </article>
+        <article class="card stage future">
+          <h3 data-i18n="roadmap.future">Futuro</h3>
+          <ul>
+            <li data-i18n="roadmap.future1">Co-op para 2 jogadores</li>
+            <li data-i18n="roadmap.future2">Novas fases, zumbis e chefes</li>
+            <li data-i18n="roadmap.future3">Novos personagens</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="creditos">
+      <h2 data-i18n="credits.title">Créditos</h2>
+      <div class="card credits">
+        <p><span data-i18n="credits.art">Arte do cenário, dos zumbis e dos itens:</span> <a href="https://ittaimanero.itch.io/zombie-apocalypse-tileset" rel="noopener">Zombie Apocalypse Tileset</a>, Ittai Manero.</p>
+        <p><span data-i18n="credits.music">Músicas:</span> <a href="https://opengameart.org/content/dark-theme" rel="noopener">Dark Theme</a> (JaggedStone, CC0) <span data-i18n="credits.and">e</span> <a href="https://opengameart.org/content/dark-ambience-loop" rel="noopener">Dark Ambience Loop</a> (Iwan Gabovitch, CC-BY 3.0).</p>
+        <p><span data-i18n="credits.fonts">Fontes:</span> Silkscreen, Pixelify Sans <span data-i18n="credits.and">e</span> Fusion Pixel Font.</p>
+        <p data-i18n="credits.engine">Feito com Godot Engine.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom">
+    <p>© 2026 Zumbillion. <span data-i18n="footer.rights">As imagens são capturas do jogo; a arte pertence aos seus autores.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
