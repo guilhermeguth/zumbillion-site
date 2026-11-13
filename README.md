@@ -7,14 +7,29 @@ Publicada pelo GitHub Pages a partir da branch `main`: https://guilhermeguth.git
 ## Estrutura
 
 - `index.html`: a página, com os textos em português.
-- `script.js`: os textos em inglês, a troca de idioma (lembrada no navegador) e a lista de armas.
+- `script.js`: os textos em inglês, a troca de idioma (lembrada no navegador), a lista de armas e a montagem da linha do tempo.
+- `updates.js`: as entradas da linha do tempo de atualizações.
 - `style.css`: o visual, na estética pixel art do jogo.
 - `images/shots/`: capturas do jogo em português (`-pt`) e em inglês (`-en`).
 - `images/characters/` e `images/weapons/`: arte própria do jogo, ampliada sem suavização.
 
 Site estático, sem build: abra o `index.html` ou sirva a pasta (`python3 -m http.server`).
 
-**Cache:** o GitHub Pages deixa o navegador guardar CSS e JavaScript por 10 minutos. Ao mudar o `style.css` ou o `script.js`, troque a versão no fim do endereço deles no `index.html` (`?v=AAAAMMDD` mais uma letra), para quem já visitou receber a versão nova na hora.
+**Cache:** o GitHub Pages deixa o navegador guardar CSS e JavaScript por 10 minutos. Ao mudar o `style.css`, o `script.js` ou o `updates.js`, troque a versão no fim do endereço deles no `index.html` (`?v=AAAAMMDD` mais uma letra), para quem já visitou receber a versão nova na hora.
+
+## Linha do tempo de atualizações
+
+A seção "Atualizações" mostra, por data, tudo o que o jogador percebe no jogo. **Cada entrega do jogo que o jogador perceba acrescenta uma entrada no topo de `updates.js`**, no mesmo PR do site que cita o cartão:
+
+```js
+{
+  tag: "weapons", // weapons, horde, map, progress, combat, interface, audio ou site
+  pt: ["Título curto", "Uma ou duas frases do que mudou para quem joga."],
+  en: ["Short title", "One or two sentences on what changed for players."],
+},
+```
+
+Se a data ainda não existe, crie um bloco `{ date: "AAAA-MM-DD", items: [...] }` no início da lista. A página mostra as duas datas mais recentes e o botão "Ver todas" abre o resto. Como o repositório do jogo é privado, não ponha links para os cartões.
 
 ## Regra da arte (importante)
 
