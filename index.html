@@ -93,6 +93,7 @@
 
     <section id="galeria">
       <h2 data-i18n="gallery.title">Galeria</h2>
+      <p class="lead" data-i18n="gallery.open">Clique numa captura para ver maior.</p>
       <div class="grid gallery">
         <figure class="frame">
           <img data-shot="horde" src="images/shots/horde-pt.png" alt="" loading="lazy" width="960" height="540">
@@ -257,6 +258,16 @@
   <footer class="bottom">
     <p>© 2026 Zumbillion. <span data-i18n="footer.rights">As imagens são capturas do jogo; a arte pertence aos seus autores.</span></p>
   </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+    <figure>
+      <img id="lightbox-image" src="images/shots/horde-pt.png" alt="" width="960" height="540">
+      <figcaption><span id="lightbox-caption"></span> <span class="lightbox-count" id="lightbox-count"></span></figcaption>
+    </figure>
+    <button class="lightbox-close" type="button" data-i18n-aria="lightbox.close" aria-label="Fechar">×</button>
+    <button class="lightbox-prev" type="button" data-i18n-aria="lightbox.prev" aria-label="Anterior">‹</button>
+    <button class="lightbox-next" type="button" data-i18n-aria="lightbox.next" aria-label="Próxima">›</button>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
