@@ -441,3 +441,70 @@ a.button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 #000; }
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
 }
+
+/* Linha do tempo das atualizações */
+.timeline {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0 0 0 28px;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  background: var(--panel-edge);
+}
+.day { position: relative; margin-bottom: 32px; }
+.day:last-child { margin-bottom: 0; }
+.day::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  background: var(--gold);
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0 #000;
+}
+.day:not(:first-child)::before { background: var(--panel-edge); }
+.day time {
+  display: block;
+  font-family: var(--pixel);
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.day-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.update h3 { margin: 6px 0 6px; color: var(--text); font-size: 18px; }
+.update p { color: var(--muted); }
+.update .tag {
+  display: inline-block;
+  font-family: var(--pixel);
+  font-size: 11px;
+  padding: 2px 6px;
+  color: var(--bg);
+  background: var(--muted);
+}
+.update[data-tag="weapons"] .tag { background: var(--gold); }
+.update[data-tag="horde"] .tag { background: var(--red); color: var(--text); }
+.update[data-tag="map"] .tag { background: var(--green); }
+.update[data-tag="progress"] .tag { background: #8fb7e8; }
+.update[data-tag="combat"] .tag { background: #e8833a; }
+.update[data-tag="audio"] .tag { background: #c79be0; }
+.more { margin-top: 24px; cursor: pointer; }
+@media (max-width: 860px) {
+  .timeline { padding-left: 24px; }
+  .day::before { left: -24px; width: 14px; height: 14px; }
+  .timeline::before { left: 5px; }
+  .day-items { grid-template-columns: 1fr; }
+}

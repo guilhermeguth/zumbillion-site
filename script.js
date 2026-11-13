@@ -64,6 +64,11 @@ const EN = {
   "char.granny.effect": "Starts with 8 Luck.",
   "arsenal.title": "Arsenal",
   "arsenal.text": "Weapons that fire on their own: melee, projectiles, cones of fire, sound waves, boomerangs, mines and gas clouds. Hover or tap to see the evolved version.",
+  "nav.updates": "Updates",
+  "updates.title": "Updates",
+  "updates.text": "Everything that went into the game, day by day.",
+  "updates.more": "Show all updates",
+  "updates.less": "Show fewer updates",
   "nav.roadmap": "Roadmap",
   "roadmap.title": "Roadmap",
   "roadmap.text": "The game is playable from start to finish and is in the polish phase. From here on:",
@@ -195,6 +200,7 @@ const PT_ARIA = {};
 document.querySelectorAll("[data-i18n]").forEach((node) => {
   PT[node.dataset.i18n] = node.textContent;
 });
+PT["updates.less"] = "Ver menos atualizações";
 
 function buildWeapons() {
   const list = document.getElementById("weapons");
@@ -214,6 +220,64 @@ function buildWeapons() {
     item.append(base, evolved);
     list.append(item);
   }
+}
+
+// Linha do tempo (dados em updates.js). Os nós são criados uma vez; a troca
+// de idioma só muda os textos, para não perder a animação de entrada.
+const TIMELINE_VISIBLE = 2;
+let timelineOpen = false;
+
+function buildTimeline() {
+  const list = document.getElementById("timeline");
+  const more = document.getElementById("timeline-more");
+  if (!list || typeof UPDATES === "undefined") return;
+  UPDATES.forEach((day, index) => {
+    const entry = document.createElement("li");
+    entry.className = "day";
+    entry.hidden = index >= TIMELINE_VISIBLE;
+    const time = document.createElement("time");
+    time.dateTime = day.date;
+    entry.append(time);
+    const items = document.createElement("div");
+    items.className = "day-items";
+    day.items.forEach((item) => {
+      const card = document.createElement("article");
+      card.className = "card update";
+      card.dataset.tag = item.tag;
+      card.innerHTML = '<span class="tag"></span><h3></h3><p></p>';
+      card._update = item;
+      items.append(card);
+    });
+    entry.append(items);
+    list.append(entry);
+  });
+  if (UPDATES.length <= TIMELINE_VISIBLE) {
+    more.hidden = true;
+    return;
+  }
+  more.addEventListener("click", () => {
+    timelineOpen = !timelineOpen;
+    list.querySelectorAll(".day").forEach((entry, index) => {
+      entry.hidden = !timelineOpen && index >= TIMELINE_VISIBLE;
+    });
+    more.setAttribute("aria-expanded", String(timelineOpen));
+    more.dataset.i18n = timelineOpen ? "updates.less" : "updates.more";
+    more.textContent = (document.documentElement.lang === "en" ? EN : PT)[more.dataset.i18n];
+  });
+}
+
+function translateTimeline(english) {
+  const format = new Intl.DateTimeFormat(english ? "en-US" : "pt-BR", { day: "numeric", month: "long", year: "numeric" });
+  document.querySelectorAll("#timeline time").forEach((time) => {
+    time.textContent = format.format(new Date(`${time.dateTime}T12:00:00`));
+  });
+  document.querySelectorAll("#timeline .update").forEach((card) => {
+    const item = card._update;
+    const [title, text] = english ? item.en : item.pt;
+    card.querySelector(".tag").textContent = UPDATE_TAGS[item.tag][english ? 1 : 0];
+    card.querySelector("h3").textContent = title;
+    card.querySelector("p").textContent = text;
+  });
 }
 
 function setLanguage(lang) {
@@ -246,6 +310,7 @@ function setLanguage(lang) {
     item.title = english ? weapon[2] : weapon[1];
     item.setAttribute("aria-label", item.title);
   });
+  translateTimeline(english);
   document.querySelectorAll(".lang button").forEach((button) => {
     button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
   });
@@ -464,6 +529,7 @@ function buildGuideTabs() {
 }
 
 buildWeapons();
+buildTimeline();
 buildLightbox();
 buildGuideTabs();
 buildSlideshow();

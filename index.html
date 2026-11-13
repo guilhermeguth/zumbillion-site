@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261113d">
+  <link rel="stylesheet" href="style.css?v=20261113e">
 </head>
 <body>
   <header class="top">
@@ -36,6 +36,7 @@
       <a href="#personagens" data-i18n="nav.characters">Personagens</a>
       <a href="#arsenal" data-i18n="nav.arsenal">Arsenal</a>
       <a href="#guia" data-i18n="nav.guide">Guia</a>
+      <a href="#atualizacoes" data-i18n="nav.updates">Atualizações</a>
       <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
       <a href="#creditos" data-i18n="nav.credits">Créditos</a>
     </nav>
@@ -311,6 +312,13 @@
       </div>
     </section>
 
+    <section id="atualizacoes">
+      <h2 data-i18n="updates.title">Atualizações</h2>
+      <p class="lead" data-i18n="updates.text">Tudo o que entrou no jogo, dia a dia.</p>
+      <ol class="timeline" id="timeline"></ol>
+      <button type="button" class="button more" id="timeline-more" aria-controls="timeline" aria-expanded="false" data-i18n="updates.more">Ver todas as atualizações</button>
+    </section>
+
     <section id="roadmap">
       <h2 data-i18n="roadmap.title">Roadmap</h2>
       <p class="lead" data-i18n="roadmap.text">O jogo é jogável do começo ao fim e está na fase de polimento. Daqui para a frente:</p>
@@ -380,6 +388,7 @@
     <button class="lightbox-next" type="button" data-i18n-aria="lightbox.next" aria-label="Próxima">›</button>
   </dialog>
 
-  <script src="script.js?v=20261113d"></script>
+  <script src="updates.js?v=20261113e"></script>
+  <script src="script.js?v=20261113e"></script>
 </body>
 </html>
