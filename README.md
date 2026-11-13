@@ -14,6 +14,8 @@ Publicada pelo GitHub Pages a partir da branch `main`: https://guilhermeguth.git
 
 Site estático, sem build: abra o `index.html` ou sirva a pasta (`python3 -m http.server`).
 
+**Cache:** o GitHub Pages deixa o navegador guardar CSS e JavaScript por 10 minutos. Ao mudar o `style.css` ou o `script.js`, troque a versão no fim do endereço deles no `index.html` (`?v=AAAAMMDD` mais uma letra), para quem já visitou receber a versão nova na hora.
+
 ## Regra da arte (importante)
 
 O jogo usa o pacote **Zombie Apocalypse Tileset**, de Ittai Manero, cuja licença **proíbe redistribuir os sprites**. Por isso este repositório público só pode ter:
