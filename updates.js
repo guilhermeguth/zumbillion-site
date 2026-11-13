@@ -1,7 +1,6 @@
 // Linha do tempo das atualizações do jogo, da mais recente para a mais antiga.
-// Cada entrega que o jogador perceba acrescenta uma entrada aqui, em
-// português e inglês (veja o README do repositório).
-// tag: weapons, horde, map, progress, combat, interface, audio ou site.
+// Gerado por tools/build_docs.py no repositório do jogo, a partir de
+// resources/changelog/ e das traduções; não edite à mão (veja o README).
 
 const UPDATE_TAGS = {
   weapons: ["Armas", "Weapons"],
@@ -11,7 +10,7 @@ const UPDATE_TAGS = {
   combat: ["Combate", "Combat"],
   interface: ["Interface", "Interface"],
   audio: ["Áudio", "Audio"],
-  site: ["Site", "Site"],
+  site: ["Site", "Website"],
 };
 
 const UPDATES = [
@@ -42,6 +41,11 @@ const UPDATES = [
         tag: "interface",
         pt: ["Dicas da primeira vez", "Avisos curtos explicam carros, túmulos, acampamentos, airdrops e chefes na primeira vez que aparecem."],
         en: ["First-time hints", "Short tips explain cars, tombs, camps, airdrops and bosses the first time you meet them."],
+      },
+      {
+        tag: "interface",
+        pt: ["Novidades e relato de bugs", "A versão aparece no menu e na pausa, a página Novidades lista as atualizações dentro do jogo e o botão Relatar bug copia os dados da partida e abre o formulário de relato."],
+        en: ["What's new and bug reports", "The version shows in the menu and the pause screen, the What's New page lists updates inside the game, and the Report a bug button copies the run's details and opens the report form."],
       },
     ],
   },
@@ -76,7 +80,7 @@ const UPDATES = [
       {
         tag: "progress",
         pt: ["Conhecimentos, equipamentos, power-ups e estruturas", "20 conhecimentos, 38 equipamentos de sobrevivência, 7 power-ups e estruturas no mapa: negociante, bancada, torre de rádio e sirene."],
-        en: ["Knowledges, gear, power-ups and structures", "20 knowledges, 38 pieces of survival gear, 7 power-ups and map structures: merchant, workbench, radio tower and siren."],
+        en: ["Knowledges, gear, power-ups and structures", "20 knowledges, 38 pieces of survival gear, 7 power-ups and map structures: trader, workbench, radio tower and siren."],
       },
       {
         tag: "progress",
@@ -90,8 +94,8 @@ const UPDATES = [
       },
       {
         tag: "site",
-        pt: ["Site oficial no ar", "Este site, com galeria, personagens, arsenal, guia e roadmap."],
-        en: ["Official website", "This site, with a gallery, characters, arsenal, guide and roadmap."],
+        pt: ["Site oficial no ar", "O site do jogo, com galeria, personagens, arsenal, guia e roadmap."],
+        en: ["Official website", "The game's website, with a gallery, characters, arsenal, guide and roadmap."],
       },
     ],
   },

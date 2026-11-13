@@ -165,6 +165,7 @@ const EN = {
   "guide.progress.3": "<strong>Unlocks:</strong> characters, weapons, stages and skins unlocked through challenges.",
   "guide.progress.4": "<strong>Achievements and rankings:</strong> 17 achievements, local leaderboards and a history of your recent runs.",
   "footer.rights": "Images are in-game screenshots; the art belongs to its authors.",
+  "footer.bug": "Found a bug? Report it here",
 };
 
 // Ícones das armas desenhadas para o jogo (arte própria) e o nome de cada uma.
