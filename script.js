@@ -23,9 +23,9 @@ const EN = {
   "features.map.title": "A map to explore",
   "features.map.text": "Towns, farms, graveyards, lakes and mud that slow you down. Cars to loot, military airdrops, camps, cursed tombs, merchants and sirens.",
   "features.characters.title": "Six survivors",
-  "features.characters.text": "Each with an exclusive weapon and an ability of their own: from the Survivor's slingshot to Granny's boomerang slipper.",
+  "features.characters.text": "Each with an exclusive weapon, an ability of their own and three skins to unlock through challenges: Veteran, Infected and Golden.",
   "features.progress.title": "Progress that sticks",
-  "features.progress.text": "Coins even when you die, a shop with permanent upgrades, three stages, five Threat levels, endless mode, rankings and 17 achievements.",
+  "features.progress.text": "Coins even when you die, a shop with permanent upgrades, three stages, five Threat levels, endless mode, skins, rankings, run history and 17 achievements.",
   "gallery.title": "Gallery",
   "gallery.horde": "The horde all around and the flamethrower at work.",
   "gallery.evolution": "Leveling up: a legendary evolution among the options.",
@@ -34,6 +34,10 @@ const EN = {
   "gallery.characters": "Character select, with records and abilities.",
   "gallery.result": "At the end, the damage of each weapon and the coins earned.",
   "characters.title": "Characters",
+  "characters.text": "Every character has three skins to unlock: Veteran (10 runs), Infected (win normal mode) and Golden (win at Threat 5).",
+  "skin.veteran": "Veteran",
+  "skin.infected": "Infected",
+  "skin.golden": "Golden",
   "char.survivor.name": "Survivor",
   "char.survivor.text": "An ordinary guy who refused to become food. Balanced in everything.",
   "char.survivor.ability": "Scavenger",
@@ -69,9 +73,9 @@ const EN = {
   "roadmap.done3": "3 stages with lakes, mud, towns and structures",
   "roadmap.done4": "Shop, Threat, endless mode, rankings and 17 achievements",
   "roadmap.done5": "8 languages and controller support",
+  "roadmap.done6": "Character skins unlocked by challenges",
   "roadmap.now": "Now",
   "roadmap.now1": "Balancing the 30-minute run",
-  "roadmap.now2": "Character skins unlocked by challenges",
   "roadmap.now3": "Tips for first-time players",
   "roadmap.now4": "Rebindable keys and buttons",
   "roadmap.now5": "Boss and final-stretch music",
@@ -117,6 +121,7 @@ const WEAPONS = [
 ];
 
 const PT = {};
+const PT_TITLES = {};
 document.querySelectorAll("[data-i18n]").forEach((node) => {
   PT[node.dataset.i18n] = node.textContent;
 });
@@ -147,6 +152,11 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
     node.textContent = english ? (EN[key] ?? PT[key]) : PT[key];
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach((node) => {
+    const key = node.dataset.i18nTitle;
+    if (!(key in PT_TITLES)) PT_TITLES[key] = node.title;
+    node.title = english ? (EN[key] ?? PT_TITLES[key]) : PT_TITLES[key];
   });
   document.querySelectorAll("img[data-shot]").forEach((img) => {
     img.src = `images/shots/${img.dataset.shot}-${english ? "en" : "pt"}.png`;
