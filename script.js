@@ -97,6 +97,11 @@ const EN = {
   "lightbox.close": "Close",
   "lightbox.prev": "Previous",
   "lightbox.next": "Next",
+  "stats.horde": "zombies on screen",
+  "stats.weapons": "weapons, all with evolutions",
+  "stats.zombies": "zombie types and 3 bosses",
+  "stats.characters": "survivors, 18 skins",
+  "stats.achievements": "achievements",
   "gallery.open": "Click a screenshot to see it larger.",
   "footer.rights": "Images are in-game screenshots; the art belongs to its authors.",
 };
@@ -262,8 +267,120 @@ function buildLightbox() {
   });
 }
 
+// --- Animações -------------------------------------------------------------
+// Tudo respeita "reduzir movimento" do sistema: sem ele, nada se mexe.
+const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Capturas do topo se alternando.
+function buildSlideshow() {
+  const slides = [...document.querySelectorAll("#hero-shot .slide")];
+  if (REDUCED || slides.length < 2) return;
+  let current = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 4200);
+}
+
+// Brasas subindo atrás do topo: poucos quadradinhos, como pixels de fogo.
+function buildEmbers() {
+  const canvas = document.getElementById("embers");
+  if (REDUCED || !canvas) return;
+  const context = canvas.getContext("2d");
+  const colors = ["#f5cf55", "#e8833a", "#c8432f"];
+  let embers = [];
+  let visible = true;
+  const resize = () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    const count = Math.min(48, Math.round(canvas.width / 28));
+    embers = Array.from({ length: count }, () => spawn(true));
+  };
+  const spawn = (anywhere) => ({
+    x: Math.random() * canvas.width,
+    y: anywhere ? Math.random() * canvas.height : canvas.height + 4,
+    speed: 0.25 + Math.random() * 0.6,
+    drift: (Math.random() - 0.5) * 0.3,
+    size: Math.random() < 0.7 ? 2 : 3,
+    life: 0.4 + Math.random() * 0.6,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  });
+  const frame = () => {
+    if (visible && !document.hidden) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      for (let index = 0; index < embers.length; index += 1) {
+        const ember = embers[index];
+        ember.y -= ember.speed;
+        ember.x += ember.drift + Math.sin(ember.y / 30) * 0.15;
+        if (ember.y < -4) embers[index] = spawn(false);
+        context.globalAlpha = ember.life * Math.min(1, ember.y / (canvas.height * 0.6)) * (0.6 + Math.random() * 0.4);
+        context.fillStyle = ember.color;
+        context.fillRect(Math.round(ember.x), Math.round(ember.y), ember.size, ember.size);
+      }
+    }
+    requestAnimationFrame(frame);
+  };
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(canvas);
+  window.addEventListener("resize", resize);
+  resize();
+  requestAnimationFrame(frame);
+}
+
+// Números que contam até o valor quando a faixa aparece.
+function buildCounters() {
+  const numbers = [...document.querySelectorAll("[data-count]")];
+  if (REDUCED) return;
+  numbers.forEach((node) => { node.textContent = "0"; });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      const target = Number(entry.target.dataset.count);
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min(1, (now - start) / 1100);
+        entry.target.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3))));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+  numbers.forEach((node) => observer.observe(node));
+}
+
+// Seções e cartões aparecem ao rolar, em sequência.
+function buildReveal() {
+  const targets = [...document.querySelectorAll("main > section:not(.hero) > h2, main > section:not(.hero) > .lead, .card, #galeria figure, .weapons li, .stat")];
+  if (REDUCED) return;
+  targets.forEach((node) => {
+    node.classList.add("reveal");
+    const siblings = [...node.parentElement.children].filter((child) => child.classList.contains("reveal"));
+    node.style.setProperty("--delay", `${Math.min(siblings.indexOf(node), 8) * 70}ms`);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const node = entry.target;
+        node.classList.add("visible");
+        observer.unobserve(node);
+        // Depois de aparecer, volta às transições próprias (o hover dos
+        // cartões não pode herdar a demora da entrada).
+        const delay = parseInt(node.style.getPropertyValue("--delay"), 10) || 0;
+        setTimeout(() => node.classList.remove("reveal", "visible"), 700 + delay);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach((node) => observer.observe(node));
+}
+
 buildWeapons();
 buildLightbox();
+buildSlideshow();
+buildEmbers();
+buildCounters();
+buildReveal();
 document.querySelectorAll(".lang button").forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
