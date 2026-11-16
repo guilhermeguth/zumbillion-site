@@ -19,6 +19,16 @@ const UPDATES = [
     items: [
       {
         tag: "progress",
+        pt: ["Prorrogação no lugar do modo infinito", "A prorrogação de cada fase toma o lugar do modo infinito. Desbloqueios e skins passam a pedir uma vitória na partida, a conquista Incansável pede 5 minutos de prorrogação e a página Rankings sai do menu até chegarem os rankings online entre jogadores."],
+        en: ["Overtime replaces endless mode", "Each phase's overtime takes the place of endless mode. Unlocks and skins now ask for a run victory, the Relentless achievement asks for 5 minutes of overtime, and the Rankings page leaves the menu until online rankings between players arrive."],
+      },
+      {
+        tag: "map",
+        pt: ["Partidas em 3 fases", "Cada partida tem 3 fases de 10 minutos, cada uma num mapa novo. Chame o chefe no rádio de resgate, derrote-o e fuja: de caminhão para a próxima fase e de helicóptero na última. Depois do tempo vem a prorrogação, com a horda cada vez mais forte."],
+        en: ["Runs in 3 phases", "Each run has 3 phases of 10 minutes, each on a new map. Call the boss on the rescue radio, defeat it and escape: by truck to the next phase and by helicopter in the last one. When time runs out, overtime begins, with an ever-stronger horde."],
+      },
+      {
+        tag: "progress",
         pt: ["Sinergias", "Certos pares de equipamento e arma ganham um efeito extra, como o Napalm caseiro (galão de gasolina + lança-chamas). As opções que completam uma sinergia vêm marcadas com ★."],
         en: ["Synergies", "Some gear and weapon pairs gain an extra effect, like Homemade Napalm (gas can + flamethrower). Options that complete a synergy are marked with ★."],
       },
