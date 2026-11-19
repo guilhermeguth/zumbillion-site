@@ -10,7 +10,16 @@ const EN = {
   "nav.credits": "Credits",
   "hero.tagline": "Survive the horde",
   "hero.pitch": "Hundreds of zombies on screen, weapons that fire on their own and three phases to survive. Call the boss on the radio, escape by truck and, at the end, board the rescue helicopter.",
-  "hero.steam": "Steam: coming soon",
+  "hero.steam": "Coming soon to Steam",
+  "features.horde.eyebrow": "Mass horde",
+  "features.phases.eyebrow": "3 phases, one rescue",
+  "features.phases.title": "Call the boss. Run.",
+  "features.phases.text": "Each phase lasts 10 minutes on a new map. Find the rescue radio, call the boss, defeat it and board the truck. In the last phase, the helicopter. Or stay in overtime for as long as you can last.",
+  "features.weapons.eyebrow": "Arsenal",
+  "launch.eyebrow": "Rescue on the way",
+  "launch.title": "Coming soon to Steam",
+  "launch.text": "Survive the three phases, defeat the Colossus and board the helicopter. Zumbillion is coming to PC on Steam.",
+  "launch.cta": "Meet the survivors",
   "hero.see": "See the game",
   "hero.platform": "PC · single player · offline · 8 languages",
   "features.title": "What awaits you",
@@ -482,9 +491,33 @@ function buildCounters() {
   numbers.forEach((node) => observer.observe(node));
 }
 
+// Cabeçalho transparente sobre o vídeo do topo; sólido depois de rolar.
+function buildHeader() {
+  const header = document.querySelector(".top");
+  const update = () => header.classList.toggle("scrolled", window.scrollY > 40);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
+// O vídeo do topo desce mais devagar que a página (parallax leve).
+function buildParallax() {
+  const media = document.querySelector(".hero-media img");
+  if (REDUCED || !media) return;
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const offset = Math.min(window.scrollY, window.innerHeight) * 0.25;
+      media.style.setProperty("--parallax", `${offset}px`);
+      ticking = false;
+    });
+  }, { passive: true });
+}
+
 // Seções e cartões aparecem ao rolar, em sequência.
 function buildReveal() {
-  const targets = [...document.querySelectorAll("main > section:not(.hero) > h2, main > section:not(.hero) > .lead, .card:not(.guide-panel), .guide, #galeria figure, .weapons li, .stat")];
+  const targets = [...document.querySelectorAll("main > section > h2, main > section > .lead, .showcase, .card:not(.guide-panel), .guide, #galeria figure, .weapons li, .stat, .launch-text")];
   if (REDUCED) return;
   targets.forEach((node) => {
     node.classList.add("reveal");
@@ -537,6 +570,8 @@ buildLightbox();
 buildGuideTabs();
 buildSlideshow();
 buildEmbers();
+buildHeader();
+buildParallax();
 buildCounters();
 buildReveal();
 document.querySelectorAll(".lang button").forEach((button) => {
