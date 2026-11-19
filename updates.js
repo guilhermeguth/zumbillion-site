@@ -15,6 +15,16 @@ const UPDATE_TAGS = {
 
 const UPDATES = [
   {
+    date: "2026-11-19",
+    items: [
+      {
+        tag: "horde",
+        pt: ["Horda em massa", "A horda cresce com o tempo, a fase e a Ameaça até milhares de zumbis, e de tempos em tempos chega uma horda gigante de uma direção. Em Configurações > Desempenho dá para escolher o Tamanho da horda (Normal, Grande ou Enorme), e o freio automático segura a horda quando o jogo fica lento."],
+        en: ["Mass horde", "The horde grows with time, phase and Threat up to thousands of zombies, and every so often a giant horde arrives from one direction. In Settings > Performance you can pick the Horde size (Normal, Large or Huge), and the automatic brake holds the horde back when the game slows down."],
+      },
+    ],
+  },
+  {
     date: "2026-11-13",
     items: [
       {
