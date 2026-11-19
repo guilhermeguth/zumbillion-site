@@ -39,7 +39,6 @@
       <a href="#guia" data-i18n="nav.guide">Guia</a>
       <a href="#atualizacoes" data-i18n="nav.updates">Atualizações</a>
       <a href="#roadmap" data-i18n="nav.roadmap">Roadmap</a>
-      <a href="#creditos" data-i18n="nav.credits">Créditos</a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma / Language">
       <button type="button" data-lang="pt">PT</button>
@@ -47,35 +46,35 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <canvas class="embers" id="embers" aria-hidden="true"></canvas>
-      <div class="hero-text">
-        <h1 class="logo">ZUMBILLION</h1>
-        <p class="tagline" data-i18n="hero.tagline">Sobreviva à horda</p>
-        <p class="pitch" data-i18n="hero.pitch">Centenas de zumbis na tela, armas que atiram sozinhas e três fases para sobreviver. Chame o chefe no rádio, fuja de caminhão e, no fim, embarque no helicóptero de resgate.</p>
-        <div class="actions">
-          <span class="button disabled" data-i18n="hero.steam">Steam: em breve</span>
-          <a class="button" href="#galeria" data-i18n="hero.see">Ver o jogo</a>
-        </div>
-        <p class="platform" data-i18n="hero.platform">PC · um jogador · offline · 8 idiomas</p>
-        <div class="parade" aria-hidden="true">
-          <span class="walker" style="--sheet: url(images/characters/survivor-walk.png)"></span>
-          <span class="walker" style="--sheet: url(images/characters/soldier-walk.png)"></span>
-          <span class="walker" style="--sheet: url(images/characters/firefighter-walk.png)"></span>
-          <span class="walker" style="--sheet: url(images/characters/scientist-walk.png)"></span>
-          <span class="walker" style="--sheet: url(images/characters/rocker-walk.png)"></span>
-          <span class="walker" style="--sheet: url(images/characters/granny-walk.png)"></span>
-        </div>
+  <section class="hero" id="inicio">
+    <picture class="hero-media" aria-hidden="true">
+      <source srcset="media/hero.png" media="(prefers-reduced-motion: reduce)">
+      <img src="media/hero.webp" alt="" width="480" height="270" fetchpriority="high">
+    </picture>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <canvas class="embers" id="embers" aria-hidden="true"></canvas>
+    <div class="hero-text">
+      <h1 class="logo">ZUMBILLION</h1>
+      <p class="tagline" data-i18n="hero.tagline">Sobreviva à horda</p>
+      <p class="pitch" data-i18n="hero.pitch">Centenas de zumbis na tela, armas que atiram sozinhas e três fases para sobreviver. Chame o chefe no rádio, fuja de caminhão e, no fim, embarque no helicóptero de resgate.</p>
+      <div class="actions">
+        <span class="button badge" data-i18n="hero.steam">Em breve na Steam</span>
+        <a class="button" href="#destaques" data-i18n="hero.see">Ver o jogo</a>
       </div>
-      <figure class="hero-shot frame" id="hero-shot">
-        <img class="slide active" data-shot="horde" src="images/shots/horde-pt.png" alt="" width="960" height="540">
-        <img class="slide" data-shot="evolution" src="images/shots/evolution-pt.png" alt="" width="960" height="540" loading="lazy">
-        <img class="slide" data-shot="supplies" src="images/shots/supplies-pt.png" alt="" width="960" height="540" loading="lazy">
-        <img class="slide" data-shot="map" src="images/shots/map-pt.png" alt="" width="960" height="540" loading="lazy">
-      </figure>
-    </section>
+      <p class="platform" data-i18n="hero.platform">PC · um jogador · offline · 8 idiomas</p>
+    </div>
+    <div class="parade" aria-hidden="true">
+      <span class="walker" style="--sheet: url(images/characters/survivor-walk.png)"></span>
+      <span class="walker" style="--sheet: url(images/characters/soldier-walk.png)"></span>
+      <span class="walker" style="--sheet: url(images/characters/firefighter-walk.png)"></span>
+      <span class="walker" style="--sheet: url(images/characters/scientist-walk.png)"></span>
+      <span class="walker" style="--sheet: url(images/characters/rocker-walk.png)"></span>
+      <span class="walker" style="--sheet: url(images/characters/granny-walk.png)"></span>
+    </div>
+    <a class="scroll-hint" href="#destaques" aria-hidden="true" tabindex="-1">▼</a>
+  </section>
 
+  <main>
     <section class="stats" aria-label="Números">
       <div class="stat"><strong data-count="4000">4000</strong><span data-i18n="stats.horde">zumbis na tela, no máximo</span></div>
       <div class="stat"><strong data-count="24">24</strong><span data-i18n="stats.weapons">armas, todas com evolução</span></div>
@@ -86,15 +85,40 @@
 
     <section id="destaques">
       <h2 data-i18n="features.title">O que te espera</h2>
-      <div class="grid features">
-        <article class="card">
+      <article class="showcase">
+        <picture class="showcase-media frame" aria-hidden="true">
+          <source srcset="media/feature-horde.png" media="(prefers-reduced-motion: reduce)">
+          <img src="media/feature-horde.webp" alt="" width="480" height="270" loading="lazy">
+        </picture>
+        <div class="showcase-text">
+          <p class="eyebrow" data-i18n="features.horde.eyebrow">Horda em massa</p>
           <h3 data-i18n="features.horde.title">Uma horda de verdade</h3>
           <p data-i18n="features.horde.text">Milhares de zumbis ao mesmo tempo, que te cercam pelos lados em vez de só seguir atrás, e hordas gigantes de tempos em tempos. Corredores, explosivos, aríetes que disparam em linha reta, inchados que se dividem e blindados que pedem fogo.</p>
-        </article>
-        <article class="card">
+        </div>
+      </article>
+      <article class="showcase flip">
+        <picture class="showcase-media frame" aria-hidden="true">
+          <source srcset="media/feature-phases.png" media="(prefers-reduced-motion: reduce)">
+          <img src="media/feature-phases.webp" alt="" width="480" height="270" loading="lazy">
+        </picture>
+        <div class="showcase-text">
+          <p class="eyebrow" data-i18n="features.phases.eyebrow">3 fases, um resgate</p>
+          <h3 data-i18n="features.phases.title">Chame o chefe. Fuja.</h3>
+          <p data-i18n="features.phases.text">Cada fase dura 10 minutos num mapa novo. Ache o rádio de resgate, chame o chefe, derrote-o e embarque no caminhão. Na última fase, o helicóptero. Ou fique na prorrogação enquanto aguentar.</p>
+        </div>
+      </article>
+      <article class="showcase">
+        <picture class="showcase-media frame" aria-hidden="true">
+          <source srcset="media/feature-weapons.png" media="(prefers-reduced-motion: reduce)">
+          <img src="media/feature-weapons.webp" alt="" width="480" height="270" loading="lazy">
+        </picture>
+        <div class="showcase-text">
+          <p class="eyebrow" data-i18n="features.weapons.eyebrow">Arsenal</p>
           <h3 data-i18n="features.weapons.title">24 armas, todas com evolução</h3>
           <p data-i18n="features.weapons.text">Da pistola à bazuca, de lâminas de serra a gás lacrimogêneo. Leve uma arma ao nível 8 com o conhecimento certo e ela evolui para uma versão lendária.</p>
-        </article>
+        </div>
+      </article>
+      <div class="grid features compact">
         <article class="card">
           <h3 data-i18n="features.choices.title">Escolhas que importam</h3>
           <p data-i18n="features.choices.text">A cada nível, 1 entre 3 melhorias com raridade, de Comum a Lendária. Re-role, bane ou pule. Conhecimentos, equipamentos de sobrevivência e power-ups montam a sua build, e certas combinações formam sinergias.</p>
@@ -104,46 +128,18 @@
           <p data-i18n="features.map.text">Cidades, fazendas, cemitérios, lagos e lama que deixam lento. Carros para saquear, airdrops militares, acampamentos, túmulos amaldiçoados, negociantes e sirenes.</p>
         </article>
         <article class="card">
-          <h3 data-i18n="features.characters.title">Seis sobreviventes</h3>
-          <p data-i18n="features.characters.text">Cada um com uma arma exclusiva, uma habilidade própria e três skins para liberar com desafios: Veterano, Infectado e Dourado.</p>
-        </article>
-        <article class="card">
           <h3 data-i18n="features.progress.title">Progresso que fica</h3>
           <p data-i18n="features.progress.text">Moedas mesmo na derrota, loja com melhorias permanentes, três mapas, cinco níveis de Ameaça, skins, histórico de partidas e 17 conquistas.</p>
         </article>
       </div>
     </section>
 
-    <section id="galeria">
-      <h2 data-i18n="gallery.title">Galeria</h2>
-      <p class="lead" data-i18n="gallery.open">Clique numa captura para ver maior.</p>
-      <div class="grid gallery">
-        <figure class="frame">
-          <img data-shot="horde" src="images/shots/horde-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.horde">A horda em volta e o lança-chamas trabalhando.</figcaption>
-        </figure>
-        <figure class="frame">
-          <img data-shot="evolution" src="images/shots/evolution-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.evolution">Subir de nível: uma evolução lendária entre as opções.</figcaption>
-        </figure>
-        <figure class="frame">
-          <img data-shot="supplies" src="images/shots/supplies-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.supplies">Suprimentos do airdrop: melhorias para as suas armas.</figcaption>
-        </figure>
-        <figure class="frame">
-          <img data-shot="map" src="images/shots/map-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.map">O mapa: cidades, lagos e acampamentos para descobrir.</figcaption>
-        </figure>
-        <figure class="frame">
-          <img data-shot="characters" src="images/shots/characters-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.characters">Seleção de personagens, com recordes e habilidades.</figcaption>
-        </figure>
-        <figure class="frame">
-          <img data-shot="result" src="images/shots/result-pt.png" alt="" loading="lazy" width="960" height="540">
-          <figcaption data-i18n="gallery.result">No fim, o dano de cada arma e as moedas ganhas.</figcaption>
-        </figure>
-      </div>
-    </section>
+    <div class="horde-divider" aria-hidden="true">
+      <span class="runner" style="--sheet: url(images/characters/granny-walk.png)"></span>
+      <span class="zombie"></span><span class="zombie"></span><span class="zombie"></span><span class="zombie"></span>
+      <span class="zombie"></span><span class="zombie"></span><span class="zombie"></span><span class="zombie"></span>
+      <span class="zombie"></span><span class="zombie"></span><span class="zombie"></span><span class="zombie"></span>
+    </div>
 
     <section id="personagens">
       <h2 data-i18n="characters.title">Personagens</h2>
@@ -246,6 +242,51 @@
       <h2 data-i18n="arsenal.title">Arsenal</h2>
       <p class="lead" data-i18n="arsenal.text">Armas que atiram sozinhas: corpo a corpo, projéteis, cones de fogo, ondas sonoras, bumerangues, minas e nuvens de gás. Passe o mouse ou toque para ver a versão evoluída.</p>
       <ul class="weapons" id="weapons"></ul>
+    </section>
+
+    <section id="galeria">
+      <h2 data-i18n="gallery.title">Galeria</h2>
+      <p class="lead" data-i18n="gallery.open">Clique numa captura para ver maior.</p>
+      <div class="gallery strip">
+        <figure class="frame">
+          <img data-shot="horde" src="images/shots/horde-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.horde">A horda em volta e o lança-chamas trabalhando.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="evolution" src="images/shots/evolution-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.evolution">Subir de nível: uma evolução lendária entre as opções.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="supplies" src="images/shots/supplies-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.supplies">Suprimentos do airdrop: melhorias para as suas armas.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="map" src="images/shots/map-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.map">O mapa: cidades, lagos e acampamentos para descobrir.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="characters" src="images/shots/characters-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.characters">Seleção de personagens, com recordes e habilidades.</figcaption>
+        </figure>
+        <figure class="frame">
+          <img data-shot="result" src="images/shots/result-pt.png" alt="" loading="lazy" width="960" height="540">
+          <figcaption data-i18n="gallery.result">No fim, o dano de cada arma e as moedas ganhas.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="launch" id="lancamento">
+      <picture class="launch-media" aria-hidden="true">
+        <source srcset="media/feature-rescue.png" media="(prefers-reduced-motion: reduce)">
+        <img src="media/feature-rescue.webp" alt="" width="480" height="270" loading="lazy">
+      </picture>
+      <div class="launch-shade" aria-hidden="true"></div>
+      <div class="launch-text">
+        <p class="eyebrow" data-i18n="launch.eyebrow">Resgate a caminho</p>
+        <h2 data-i18n="launch.title">Em breve na Steam</h2>
+        <p data-i18n="launch.text">Sobreviva às três fases, derrote o Colosso e embarque no helicóptero. O Zumbillion chega ao PC pela Steam.</p>
+        <a class="button" href="#personagens" data-i18n="launch.cta">Conhecer os sobreviventes</a>
+      </div>
     </section>
 
     <section id="guia">
